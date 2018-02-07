@@ -1,30 +1,30 @@
 boolean mor = false;
 boolean les = false;
-int siz = 250;
+int siz = 0;
 public void setup() {
 	size(500,500);
 	rectMode(CENTER);
 }
 
 void draw() {
-	background(85);
+	background(170);
 	noFill();
-	strokeWeight(1);
-	if (mor==true) {
-		siz+=10;
+	strokeWeight(5);
+	if (mor==true && siz<=500 ) {
+		siz+=1;
 	}
-	if (les==true) {
-		siz-=10;
+	if (les==true && siz>=0 ) {
+		siz-=1;
 	}
 	Fraketyfrak(250,250, siz);
 }
 public void Fraketyfrak(int x, int y, int size){
 	rect(x, y, size,size);
 	if(size > 10){
-		Fraketyfrak(x-size/2,y,size/2);
-		Fraketyfrak(x+size/2,y,size/2);
-		Fraketyfrak(x,y-size/2,size/2);
-		Fraketyfrak(x,y+size/2,size/2);
+		Fraketyfrak(x-size,y-size,size/2);
+		Fraketyfrak(x+size,y+size,size/2);
+		Fraketyfrak(x-size,y+size,size/2);
+		Fraketyfrak(x+size,y-size,size/2);
 	}
 }
 public void keyPressed(){
